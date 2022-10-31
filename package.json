@@ -1,0 +1,19 @@
+{
+  "name": "renttogo",
+  "version": "1.0.0",
+  "description": "An online community marketplace for people to list, discover, and review properties making real estate more transparent so you know what you're renting or buying.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micahvllz/RentToGo.git"
+  },
+  "author": "Micah Villaruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micahvllz/RentToGo/issues"
+  },
+  "homepage": "https://github.com/micahvllz/RentToGo#readme"
+}
