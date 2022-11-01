@@ -29,6 +29,11 @@ app.get("/", async (req, res) => {
   res.render("listing", { listings });
 });
 
+// View specific listing
+app.get("/listings/:id", async (req, res) => {
+  const listing = await Listing.findById(req.params.id);
+  res.render("view-listing", { listing });
+});
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
