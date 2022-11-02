@@ -61,6 +61,13 @@ app.put("/listings/:id", async (req, res) => {
   res.redirect(`/listings/${listing._id}`);
 });
 
+// Delete specific listing from database
+app.delete("/listings/:id", async (req, res) => {
+  const { id } = req.params;
+  await Listing.findByIdAndDelete(id);
+  res.redirect("/listings");
+});
+
 // View specific listing
 app.get("/listings/:id", async (req, res) => {
   const listing = await Listing.findById(req.params.id);

@@ -38,7 +38,13 @@
         <a href="/listings/<%= listing._id %>/edit" class="btn btn-warning"
           >Edit</a
         >
-        <a class="btn btn-primary" role="button" href="/"
+        <form
+          action="/listings/<%= listing._id %>?_method=DELETE"
+          method="post"
+        >
+          <button type="submit" class="btn btn-danger col-12">Delete</button>
+        </form>
+        <a class="btn btn-primary my-4" role="button" href="/"
           >Back to All Listing</a
         >
       </div>
