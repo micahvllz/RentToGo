@@ -34,8 +34,13 @@
         <p><b>Address: </b><%= listing.address %></p>
         <mark><small><%= listing.createdAt %></small></mark>
       </div>
-      <div class="mt-3 text-end">
-        <a role="button" href="/" class="btn btn-primary">Back to Listings</a>
+      <div class="d-grid gap-2 col-6 mx-auto mt-5 pt-5">
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-warning"
+          >Edit</a
+        >
+        <a class="btn btn-primary" role="button" href="/"
+          >Back to All Listing</a
+        >
       </div>
     </main>
     <script
