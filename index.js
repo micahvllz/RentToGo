@@ -25,8 +25,24 @@ app.use(methodOverride("_method"));
 
 // View all listings
 app.get("/", async (req, res) => {
+  res.redirect("/listings");
+});
+
+app.get("/listings", async (req, res) => {
   const listings = await Listing.find({});
   res.render("listing", { listings });
+});
+
+// Form to add new Listing
+app.get("/listings/add", (req, res) => {
+  res.render("add-listing");
+});
+
+// Add listing to database
+app.post("/listings", async (req, res) => {
+  const listing = new Listing(req.body);
+  await listing.save();
+  res.redirect(`/listings/${listing._id}`);
 });
 
 // View specific listing
@@ -34,6 +50,7 @@ app.get("/listings/:id", async (req, res) => {
   const listing = await Listing.findById(req.params.id);
   res.render("view-listing", { listing });
 });
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 });

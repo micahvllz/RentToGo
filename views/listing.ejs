@@ -18,7 +18,12 @@
   </head>
   <body>
     <main class="container my-4">
-      <h1>All Listings</h1>
+      <div class="d-flex justify-content-between text-center">
+        <h3>All Listings</h3>
+        <a role="button" href="/listings/add" class="btn btn-dark">
+          <span class="text-center">Add Listing</span>
+        </a>
+      </div>
       <div class="mt-3 row row-cols-1 row-cols-md-3 g-4">
         <% for(let listing of listings) { %>
         <div class="col">
@@ -37,7 +42,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <small class="text-muted"><%= listing.date_posted %></small>
+              <small class="text-muted"><%= listing.createdAt %></small>
             </div>
           </div>
         </div>

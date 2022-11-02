@@ -26,11 +26,13 @@
           Uploaded by <cite title="Source Title"><%= listing.uploader %></cite>
         </figcaption>
       </figure>
-      <img src="<%= listing.image %>" class="img-fluid rounded" />
+      <div class="text-center">
+        <img src="<%= listing.image %>" class="img-fluid rounded" />
+      </div>
       <div class="mt-5 mx-3">
         <p><%= listing.description %></p>
         <p><b>Address: </b><%= listing.address %></p>
-        <mark><small><%= listing.date_posted %></small></mark>
+        <mark><small><%= listing.createdAt %></small></mark>
       </div>
       <div class="mt-3 text-end">
         <a role="button" href="/" class="btn btn-primary">Back to Listings</a>
