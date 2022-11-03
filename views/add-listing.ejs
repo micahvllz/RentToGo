@@ -29,7 +29,17 @@
             >Listing Price</label
           >
           <div class="col-sm-10">
-            <input type="number" class="form-control" id="price" name="price" />
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">₱</span>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                name="price"
+                aria-describedby="addon-wrapping"
+              />
+              <span class="input-group-text">/ night</span>
+            </div>
           </div>
         </div>
         <div class="row mb-3">
@@ -73,6 +83,30 @@
               class="form-control"
               id="address"
               name="address"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="latitude" class="col-sm-2 col-form-label">Latitude</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="latitude"
+              name="latitude"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="longitude" class="col-sm-2 col-form-label"
+            >Longitude</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="longitude"
+              name="longitude"
             />
           </div>
         </div>

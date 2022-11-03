@@ -14,6 +14,23 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+    <style>
+      #map {
+        height: 500px;
+      }
+    </style>
     <title>RentToGo | <%= listing.name %></title>
   </head>
   <body>
@@ -32,6 +49,9 @@
       <div class="mt-5 mx-3">
         <p><%= listing.description %></p>
         <p><b>Address: </b><%= listing.address %></p>
+
+        <div id="map" class="mb-5"></div>
+
         <mark><small><%= listing.createdAt %></small></mark>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto mt-5 pt-5">
@@ -54,5 +74,25 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const map = L.map("map").setView(
+        ["<%= listing.latitude %>", "<%= listing.longitude %>"],
+        15
+      );
+
+      const tiles = L.tileLayer(
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }
+      ).addTo(map);
+
+      var marker = L.marker([
+        "<%= listing.latitude %>",
+        "<%= listing.longitude %>",
+      ]).addTo(map);
+    </script>
   </body>
 </html>

@@ -35,13 +35,18 @@
             >Listing Price</label
           >
           <div class="col-sm-10">
-            <input
-              type="number"
-              class="form-control"
-              id="price"
-              name="price"
-              value="<%= listing.price %>"
-            />
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">₱</span>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                name="price"
+                value="<%= listing.price %>"
+                aria-describedby="addon-wrapping"
+              />
+              <span class="input-group-text">/ night</span>
+            </div>
           </div>
         </div>
         <div class="row mb-3">
@@ -99,9 +104,40 @@
             />
           </div>
         </div>
+        <div class="row mb-3">
+          <label for="latitude" class="col-sm-2 col-form-label">Latitude</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="latitude"
+              name="latitude"
+              value="<%= listing.latitude %>"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="longitude" class="col-sm-2 col-form-label"
+            >Longitude</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="longitude"
+              name="longitude"
+              value="<%= listing.longitude %>"
+            />
+          </div>
+        </div>
         <div class="d-grid gap-2 col-6 mx-auto mt-5 pt-5">
           <button class="btn btn-primary" type="submit">Update</button>
-          <a class="btn btn-danger" role="button" href="/">Cancel</a>
+          <a
+            class="btn btn-danger"
+            role="button"
+            href="/listings/<%= listing._id %>"
+            >Cancel</a
+          >
         </div>
       </form>
     </main>
