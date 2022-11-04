@@ -30,6 +30,10 @@
       #map {
         height: 500px;
       }
+      .avatar-sm {
+        height: 3rem;
+        width: 3rem;
+      }
     </style>
     <title>RentToGo | <%= listing.name %></title>
   </head>
@@ -44,18 +48,62 @@
         </figcaption>
       </figure>
       <div class="text-center">
-        <img src="<%= listing.image %>" class="img-fluid rounded" />
+        <img src="<%= listing.image %>" class="img-large rounded" />
       </div>
       <div class="mt-5 mx-3">
         <p><%= listing.description %></p>
         <p><b>Address: </b><%= listing.address %></p>
 
-        <div id="map" class="mb-5"></div>
+        <div id="map" class="mb-4"></div>
 
         <mark><small><%= listing.createdAt %></small></mark>
+
+        <div class="card mt-5">
+          <h5 class="card-header">Leave a Comment:</h5>
+          <div class="card-body">
+            <form action="/listings/<%= listing._id %>" method="post">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  id="comment"
+                  name="comment"
+                  rows="3"
+                  placeholder="Comment"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <% if (listing.reviews.length > 0) { listing.reviews =
+        listing.reviews.reverse(); listing.reviews.forEach(function (review) {
+        %>
+        <div class="d-flex gap-3 mt-4">
+          <div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png"
+              class="rounded-circle avatar-sm"
+            />
+          </div>
+          <div>
+            <h6><%= review.username %></h6>
+            <small><%= review.comment %></small>
+          </div>
+        </div>
+        <% })} %>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto mt-5 pt-5">
-        <a href="/listings/<%= listing._id %>/edit" class="btn btn-warning"
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-success"
           >Edit</a
         >
         <form

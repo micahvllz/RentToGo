@@ -61,6 +61,14 @@ app.put("/listings/:id", async (req, res) => {
   res.redirect(`/listings/${listing._id}`);
 });
 
+// Add review to database
+app.post("/listings/:id", async (req, res) => {
+  const listing = await Listing.findById(req.params.id);
+  listing.reviews.push(req.body);
+  await listing.save();
+  res.redirect(`/listings/${listing._id}`);
+});
+
 // Delete specific listing from database
 app.delete("/listings/:id", async (req, res) => {
   const { id } = req.params;

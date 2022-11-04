@@ -1,16 +1,12 @@
 const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema({
-  reviewer: {
+  username: {
     type: String,
     required: true,
   },
   comment: {
     type: String,
-    required: true,
-  },
-  date_commented: {
-    type: Date,
     required: true,
   },
 });

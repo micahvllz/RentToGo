@@ -24,6 +24,32 @@ const seedListings = [
     latitude: 13.9411,
     longitude: 121.1622,
     date_posted: "2021-05-01",
+    reviews: [
+      {
+        username: "francis luigi",
+        comment: "Great value, good place for bonding with family and friends.",
+      },
+      {
+        username: "hannah",
+        comment:
+          "We all enjoyed our stay at Skylight. Kuya caretaker took really good care of us and was always ready to help and assist. Would come back again ❤️",
+      },
+      {
+        username: "sophia",
+        comment:
+          "Skylight Hidden Resort was very amazing, relaxing, and it leads you closer to nature. Kuya Anthony, the caretaker, was very accommodating and helpful. The whole place itself feels very homey. We highly recommend it and we're hoping to be back again.",
+      },
+      {
+        username: "patrick",
+        comment:
+          "Anthony, the caretaker was super helpful and goes beyond. The place was also super nice. Great outdoor area.",
+      },
+      {
+        username: "john",
+        comment:
+          "If you're looking for a home away from home to destress, this is the place to be. The entire villa/resort is instagram worthy. Looking forward to booking this place again in the future. Much thanks to the host, especially their caretaker.",
+      },
+    ],
   },
   {
     name: "The Haven @ Vinia Residences",

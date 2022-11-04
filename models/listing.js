@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Review = require("./review");
 
 let listingSchema = new mongoose.Schema(
   {
@@ -34,6 +35,7 @@ let listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    reviews: [Review.schema],
   },
   {
     timestamps: true,
